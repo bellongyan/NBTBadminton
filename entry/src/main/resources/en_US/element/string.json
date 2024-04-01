@@ -23,6 +23,78 @@
     {
       "name": "Login_Title",
       "value": "Login"
+    },
+    {
+      "name": "Register_Title",
+      "value": "Register"
+    },
+    {
+      "name": "Student_ID",
+      "value": "Student ID"
+    },
+    {
+      "name": "Nickname",
+      "value": "Nickname"
+    },
+    {
+      "name": "Password",
+      "value": "Password"
+    },
+    {
+      "name": "Repeat_Password",
+      "value": "Repeat Enter Password"
+    },
+    {
+      "name": "Email",
+      "value": "E-Mail"
+    },
+    {
+      "name": "Hint_Student_ID",
+      "value": "Please enter your username"
+    },
+    {
+      "name": "Hint_Nickname",
+      "value": "Please enter a nickname"
+    },
+    {
+      "name": "Hint_Password",
+      "value": "Please enter password"
+    },
+    {
+      "name": "Hint_Repeat_Password",
+      "value": "Please enter your password again"
+    },
+    {
+      "name": "Hint_Email",
+      "value": "Please enter email"
+    },
+    {
+      "name": "Man",
+      "value": "Man"
+    },
+    {
+      "name": "Warm_Repeat_Password",
+      "value": "The password you entered is different from last time, please enter it again"
+    },
+    {
+      "name": "Woman",
+      "value": "Woman"
+    },
+    {
+      "name": "Sex",
+      "value": "Sex"
+    },
+    {
+      "name": "Prompt",
+      "value": "Prompt Message"
+    },
+    {
+      "name": "Registration_Prompt",
+      "value": "Your registration information is not complete at the moment, please continue to fill in and try again"
+    },
+    {
+      "name": "Confirm",
+      "value": "Confirm"
     }
   ]
 }

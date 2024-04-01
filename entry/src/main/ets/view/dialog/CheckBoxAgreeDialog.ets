@@ -1,4 +1,4 @@
-import { CommonConstants } from '../../../common/constants/CommonConstants'
+import { CommonConstants } from '../../common/constants/CommonConstants'
 
 @CustomDialog
 export default struct CheckBoxAgreeDialog {

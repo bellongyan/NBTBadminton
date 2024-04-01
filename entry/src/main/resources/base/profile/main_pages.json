@@ -2,6 +2,7 @@
   "src": [
     "pages/Index",
     "pages/Login",
-    "pages/UserAgreement"
+    "pages/UserAgreement",
+    "pages/Register"
   ]
 }

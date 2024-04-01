@@ -23,6 +23,78 @@
     {
       "name": "Login_Title",
       "value": "登录"
+    },
+    {
+      "name": "Register_Title",
+      "value": "注册"
+    },
+    {
+      "name": "Student_ID",
+      "value": "学号"
+    },
+    {
+      "name": "Nickname",
+      "value": "昵称"
+    },
+    {
+      "name": "Password",
+      "value": "密码"
+    },
+    {
+      "name": "Repeat_Password",
+      "value": "再次输入密码"
+    },
+    {
+      "name": "Email",
+      "value": "邮箱"
+    },
+    {
+      "name": "Hint_Student_ID",
+      "value": "请输入用户名（学号）"
+    },
+    {
+      "name": "Hint_Nickname",
+      "value": "请输入昵称"
+    },
+    {
+      "name": "Hint_Password",
+      "value": "请输入密码"
+    },
+    {
+      "name": "Hint_Repeat_Password",
+      "value": "请再次输入密码"
+    },
+    {
+      "name": "Hint_Email",
+      "value": "请输入邮箱"
+    },
+    {
+      "name": "Warm_Repeat_Password",
+      "value": "您输入的密码与上次不相同，请重新输入"
+    },
+    {
+      "name": "Man",
+      "value": "男"
+    },
+    {
+      "name": "Woman",
+      "value": "女"
+    },
+    {
+      "name": "Sex",
+      "value": "性别"
+    },
+    {
+      "name": "Prompt",
+      "value": "提示"
+    },
+    {
+      "name": "Registration_Prompt",
+      "value": "您的注册信息暂时没有填写完整，请继续填写后再试"
+    },
+    {
+      "name": "Confirm",
+      "value": "确认"
     }
   ]
 }

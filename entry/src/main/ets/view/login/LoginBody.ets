@@ -1,8 +1,7 @@
 import { CommonConstants } from '../../common/constants/CommonConstants'
 import LoginUserInfo from '../../viewmodel/LoginUserInfo'
-import CheckBoxAgreeDialog from './dialog/CheckBoxAgreeDialog'
-import NullUsernamePassword from './dialog/NullUsernamePassword'
-import { CryptoJS } from '@ohos/crypto-js'
+import CheckBoxAgreeDialog from '../dialog/CheckBoxAgreeDialog'
+import NullUsernamePassword from '../dialog/NullUsernamePassword'
 import router from '@ohos.router'
 
 
@@ -46,8 +45,7 @@ export default struct LoginBody {
               this.nullUsernamePasswordController.open()
               console.log(this.username, this.password)
             }
-            var pwd = CryptoJS.MD5(this.password).toString()
-            let userInfo = JSON.stringify(new LoginUserInfo(this.username, pwd))
+            let userInfo = JSON.stringify(new LoginUserInfo(this.username, this.password))
 
             // TODO: 网络请求验证
             if (true) {

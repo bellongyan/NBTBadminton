@@ -10,10 +10,9 @@ struct Login {
   @State isCheck: boolean = false
 
   build() {
-    Column({ space: CommonConstants.SPACE_10 }) {
+    Column() {
       Header({ title: $r('app.string.Login_Title') })
-      Column() {
-
+      Column({ space: CommonConstants.SPACE_10 }) {
         Text('账号密码登录').fontWeight(CommonConstants.FONT_WEIGHT_700)
           .fontSize(32)
 
