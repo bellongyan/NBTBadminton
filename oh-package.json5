@@ -10,6 +10,7 @@
   "version": "1.0.0",
   "dynamicDependencies": {},
   "dependencies": {
-    "@ohos/crypto-js": "^2.0.3"
+    "@ohos/crypto-js": "^2.0.3",
+    "@ohos/axios": "^2.2.0"
   }
 }

@@ -1,9 +1,9 @@
 import router from '@ohos.router'
 import { CommonConstants } from '../../common/constants/CommonConstants'
-import LoginUserInfo from '../../viewmodel/LoginUserInfo'
 import UserInfo from '../../viewmodel/UserInfo'
 import CheckBoxAgreeDialog from '../dialog/CheckBoxAgreeDialog'
 import FullRegisterInfoDialog from '../dialog/FullRegisterInfoDialog'
+import axios from '@ohos/axios'
 
 @Extend(Text)
 function textStyle() {
@@ -95,7 +95,7 @@ export default struct RegisterBody {
             Checkbox()
               .select(this.isWoman)
               .onClick(() => {
-                this.sex = 2
+                this.sex = 0
                 this.isWoman = true
                 this.isMan = false
               })
@@ -126,7 +126,10 @@ export default struct RegisterBody {
 
         // 密码不一样警告
         if (this.isPasswordSame === false && this.repeatPassword !== '') {
-          Text($r('app.string.Warm_Repeat_Password')).fontColor(Color.Red).fontSize(18)
+          Text($r('app.string.Warm_Repeat_Password')).fontColor(Color.Red).fontSize(18).visibility(Visibility.Visible)
+        }
+        else {
+          Text($r('app.string.Warm_Repeat_Password')).fontColor(Color.Red).fontSize(18).visibility(Visibility.Hidden)
         }
       }
       .width(CommonConstants.THOUSANDTH_940)
@@ -141,13 +144,19 @@ export default struct RegisterBody {
             this.checkBoxAgreeDialogController.open()
           }
           if (this.isPasswordSame) {
-            new LoginUserInfo(this.username, this.password)
-            new UserInfo(this.username, this.nickname, this.email, this.sex)
-            let loginUserInfo = JSON.stringify(new LoginUserInfo(this.username, this.password))
-            let userInfo = JSON.stringify(new LoginUserInfo(this.username, this.password))
+            new UserInfo(this.username, this.password, this.nickname, this.email, this.sex)
             // TODO: 发送信息到后端，信息注册成功
-            // 数据入库成功
-            router.back()
+
+            let qs = `userid=${this.username}&password=${this.password}&nickname=${this.nickname}&sex=${this.sex}&email=${this.email}`
+            axios.post(
+              "http://192.168.43.177:8080/users/register", qs,
+              { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+            ).then(response => {
+              router.back();
+            }).catch(error => {
+              console.log(error)
+            })
+
           }
         })
     }

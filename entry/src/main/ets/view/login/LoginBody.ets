@@ -1,8 +1,8 @@
 import { CommonConstants } from '../../common/constants/CommonConstants'
-import LoginUserInfo from '../../viewmodel/LoginUserInfo'
 import CheckBoxAgreeDialog from '../dialog/CheckBoxAgreeDialog'
 import NullUsernamePassword from '../dialog/NullUsernamePassword'
 import router from '@ohos.router'
+import axios from '@ohos/axios'
 
 
 @Component
@@ -43,18 +43,23 @@ export default struct LoginBody {
           if (this.isCheck === true) {
             if (this.username === '' || this.password == '') {
               this.nullUsernamePasswordController.open()
-              console.log(this.username, this.password)
+            } else {
+              let qs = `userid=${this.username}&password=${this.password}`
+              axios.post("http://192.168.43.177:8080/users/login", qs,
+                { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+              )
+                .then(response => {
+                  if (response.data.code === 0) {
+                    let jwt = response.data.data
+                    console.log(jwt)
+                    router.replaceUrl({
+                      url: 'pages/Index'
+                      // jwt令牌: response.data.data
+                      //TODO: 将jwt令牌保存在首选项中
+                    })
+                  }
+                })
             }
-            let userInfo = JSON.stringify(new LoginUserInfo(this.username, this.password))
-
-            // TODO: 网络请求验证
-            if (true) {
-              router.replaceUrl({
-                url: 'pages/Index'
-              })
-            }
-
-            console.log(userInfo)
           }
           else {
             this.checkBoxAgreeDialogController.open()
@@ -62,7 +67,9 @@ export default struct LoginBody {
         })
       Button('注册').type(ButtonType.Normal).width(300)
         .onClick(() => {
-          // TODO: 注册页面的跳转
+          router.pushUrl({
+            url: 'pages/Register'
+          })
         })
     }
   }

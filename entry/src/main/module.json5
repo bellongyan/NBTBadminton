@@ -1,5 +1,11 @@
 {
   "module": {
+    // 网络权限申请
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      },
+    ],
     "name": "entry",
     "type": "entry",
     "description": "$string:module_desc",
