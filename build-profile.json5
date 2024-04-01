@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\belhomme\\.ohos\\config\\auto_debug_NBTBadminton_com.longyan.nbtbadminton_2850086000424794171.cer",
+          "storePassword": "0000001B1796BDA28BEC69A54C9D8E4C000A17F0ED82548526BA7D99689AB411DDC798DB3C3BDA5D638A57",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BDC9B5D6F2B12F30E92D0CF214495D759FAD5255B5EA7BB6A5DED98A1459A408EA5D19B5C628DCA",
+          "profile": "C:\\Users\\belhomme\\.ohos\\config\\auto_debug_NBTBadminton_com.longyan.nbtbadminton_2850086000424794171.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\belhomme\\.ohos\\config\\auto_debug_NBTBadminton_com.longyan.nbtbadminton_2850086000424794171.p12"
+        }
+      }
+    ],
     "compileSdkVersion": 9,
     "compatibleSdkVersion": 9,
     "products": [
