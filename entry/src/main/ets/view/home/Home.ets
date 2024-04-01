@@ -1,3 +1,4 @@
+import router from '@ohos.router'
 import { CommonConstants } from '../../common/constants/CommonConstants'
 import HomeHeader from '../../conponent/HomeHeader'
 
@@ -11,6 +12,11 @@ export default struct Home {
 
       // 用户信息
       // 如果登录显示信息，没登陆显示登录窗口
+      Button($r('app.string.Login_Title')).onClick(() => {
+        router.pushUrl({
+          url: 'pages/Login'
+        })
+      })
 
 
       // 主页

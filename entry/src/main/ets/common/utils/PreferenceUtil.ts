@@ -1,47 +1,49 @@
 import preferences from '@ohos.data.preferences';
-import { CommonConstants } from '../constants/CommonConstants';
 import Logger from './Logger';
 
 class PreferenceUtil {
-  private pref: preferences.Preferences
+  prefMap: Map<string, preferences.Preferences> = new Map()
 
-  async loadPreference(context) {
+  async loadPreference(context, name) {
     try { // 加载preferences
-      this.pref = await preferences.getPreferences(context, CommonConstants.H_STORE)
-      Logger.debug(`加载Preferences[${CommonConstants.H_STORE}]成功`)
+      let pref = await preferences.getPreferences(context, name)
+      this.prefMap.set(name, pref)
+      Logger.debug(`加载Preferences[${name}]成功`)
     } catch (e) {
-      Logger.debug(`加载Preferences[${CommonConstants.H_STORE}]失败`, JSON.stringify(e))
+      Logger.debug(`加载Preferences[${name}]失败`, JSON.stringify(e))
     }
   }
 
-  async putPreferenceValue(key: string, value: preferences.ValueType) {
-    if (!this.pref) {
-      Logger.debug(`Preferences[${CommonConstants.H_STORE}]尚未初始化！`)
+  async putPreferenceValue(name: string, key: string, value: preferences.ValueType) {
+    if (!this.prefMap.has(name)) {
+      Logger.debug(`Preferences[${name}]尚未初始化！`)
       return
     }
     try {
+      let pref = this.prefMap.get(name)
       // 写入数据
-      await this.pref.put(key, value)
+      await pref.put(key, value)
       // 刷盘
-      await this.pref.flush()
-      Logger.debug(`保存Preferences[${key} = ${value}]成功`)
+      await pref.flush()
+      Logger.debug(`保存Preferences[${name}.${key} = ${value}]成功`)
     } catch (e) {
-      Logger.debug(`保存Preferences[${key} = ${value}]失败`, JSON.stringify(e))
+      Logger.debug(`保存Preferences[${name}.${key} = ${value}]失败`, JSON.stringify(e))
     }
   }
 
-  async getPreferenceValue(key: string, defaultValue: preferences.ValueType) {
-    if (!this.pref) {
-      Logger.debug(`Preferences[${CommonConstants.H_STORE}]尚未初始化！`)
+  async getPreferenceValue(name: string, key: string, defaultValue: preferences.ValueType) {
+    if (!this.prefMap.has(name)) {
+      Logger.debug(`Preferences[${name}]尚未初始化！`)
       return
     }
     try {
+      let pref = this.prefMap.get(name)
       // 读数据
-      let value = await this.pref.get(key, defaultValue)
-      Logger.debug(`读取Preferences[${key} = ${value}]成功`)
+      let value = await pref.get(key, defaultValue)
+      Logger.debug(`读取Preferences[${name}.${key} = ${value}]成功`)
       return value
     } catch (e) {
-      Logger.debug(`读取Preferences[${key}]失败`, JSON.stringify(e))
+      Logger.debug(`读取Preferences[${name}.${key}]失败`, JSON.stringify(e))
     }
   }
 }

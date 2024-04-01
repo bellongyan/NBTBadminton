@@ -1,14 +1,19 @@
 import { CommonConstants } from '../../common/constants/CommonConstants'
 import CheckBoxAgreeDialog from '../dialog/CheckBoxAgreeDialog'
-import NullUsernamePassword from '../dialog/NullUsernamePassword'
+import NullUsernamePasswordDialog from '../dialog/NullUsernamePasswordDialog'
 import router from '@ohos.router'
 import axios from '@ohos/axios'
+import common from '@ohos.app.ability.common'
+import PreferenceUtil from '../../common/utils/PreferenceUtil'
 
+
+const JWT_KEY = 'userJwtKey'
 
 @Component
 export default struct LoginBody {
+  context = getContext(this) as common.UIAbilityContext
   nullUsernamePasswordController: CustomDialogController = new CustomDialogController({
-    builder: NullUsernamePassword()
+    builder: NullUsernamePasswordDialog()
   })
   checkBoxAgreeDialogController: CustomDialogController = new CustomDialogController({
     builder: CheckBoxAgreeDialog()
@@ -51,11 +56,9 @@ export default struct LoginBody {
                 .then(response => {
                   if (response.data.code === 0) {
                     let jwt = response.data.data
-                    console.log(jwt)
+                    PreferenceUtil.putPreferenceValue('JwtPref', JWT_KEY, jwt)
                     router.replaceUrl({
                       url: 'pages/Index'
-                      // jwt令牌: response.data.data
-                      //TODO: 将jwt令牌保存在首选项中
                     })
                   }
                 })

@@ -8,7 +8,8 @@ import PreferenceUtil from '../common/utils/PreferenceUtil';
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     // 加载用户首选项
-    PreferenceUtil.loadPreference(this.context)
+    PreferenceUtil.loadPreference(this.context, 'WelcomePref')
+    PreferenceUtil.loadPreference(this.context, 'JwtPref')
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
   }
 

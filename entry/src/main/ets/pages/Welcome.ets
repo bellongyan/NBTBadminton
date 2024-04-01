@@ -24,7 +24,7 @@ struct Welcome {
 
   async aboutToAppear() {
     // 加载首选项
-    let isAgree = await PreferenceUtil.getPreferenceValue(PREF_KEY, false)
+    let isAgree = await PreferenceUtil.getPreferenceValue('WelcomePref', PREF_KEY, false)
     // 加载弹窗
     // 同意跳转首页，不同意退出
     if (isAgree) {
@@ -50,7 +50,7 @@ struct Welcome {
 
   onConfirm() {
     // 保存首选项
-    PreferenceUtil.putPreferenceValue(PREF_KEY, true)
+    PreferenceUtil.putPreferenceValue('WelcomePref', PREF_KEY, true)
     // 跳转到主页
     this.jumpToIndex()
 
