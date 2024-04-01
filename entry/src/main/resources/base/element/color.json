@@ -3,6 +3,78 @@
     {
       "name": "start_window_background",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "primary_blue",
+      "value": "#0984e3"
+    },
+    {
+      "name": "light_primary_blue",
+      "value": "#74b9ff"
+    },
+    {
+      "name": "dark_black",
+      "value": "#2d3436"
+    },
+    {
+      "name": "light_dark",
+      "value": "#636e72"
+    },
+    {
+      "name": "purple",
+      "value": "#6c5ce7"
+    },
+    {
+      "name": "light_purple",
+      "value": "#a29bfe"
+    },
+    {
+      "name": "red",
+      "value": "#d63031"
+    },
+    {
+      "name": "light_red",
+      "value": "#ff7675"
+    },
+    {
+      "name": "yellow_lemon",
+      "value": "#ffeaa7"
+    },
+    {
+      "name": "pink",
+      "value": "#fd79a8"
+    },
+    {
+      "name": "cyan",
+      "value": "#00cec9"
+    },
+    {
+      "name": "light_cyan",
+      "value": "#81ecec"
+    },
+    {
+      "name": "green_badminton",
+      "value": "#5a966c"
+    },
+    {
+      "name": "white_cloud",
+      "value": "#ecf0f1"
+    },
+    {
+      "name": "white_silver",
+      "value": "#bdc3c7"
+    },
+    {
+      "name": "gray",
+      "value": "#7f8c8d"
+    },
+    {
+      "name": "middle_blue",
+      "value": "#7ed6df"
+    },
+    {
+      "name": "dark_blue",
+      "value": "#130f40"
     }
   ]
 }

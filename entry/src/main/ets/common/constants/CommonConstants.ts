@@ -51,7 +51,6 @@ export class CommonConstants {
   static readonly DURATION_1000: number = 1000; // 1000ms
   static readonly DURATION_800: number = 800; // 700ms
   static readonly DURATION_100: number = 100; // 100ms
-
   // space
   static readonly SPACE_2: number = 2;
   static readonly SPACE_4: number = 4;
@@ -59,4 +58,8 @@ export class CommonConstants {
   static readonly SPACE_8: number = 8;
   static readonly SPACE_10: number = 10;
   static readonly SPACE_12: number = 12;
+  // global data key
+  static readonly H_STORE: string = 'NBTBadmintonStore';
+  static readonly PACKAGE_NAME: string = 'com.longyan.nbtbadminton';
+  static readonly ENTRY_ABILITY: string = 'EntryAbility';
 }

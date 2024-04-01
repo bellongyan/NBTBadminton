@@ -3,6 +3,7 @@
     "pages/Index",
     "pages/Login",
     "pages/UserAgreement",
-    "pages/Register"
+    "pages/Register",
+    "pages/Welcome"
   ]
 }

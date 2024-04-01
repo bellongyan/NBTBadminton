@@ -95,6 +95,22 @@
     {
       "name": "Confirm",
       "value": "Confirm"
+    },
+    {
+      "name": "User_Privacy_Title",
+      "value": "Welcome to NBTBadminton"
+    },
+    {
+      "name": "User_Privacy_Content",
+      "value": "Thank you for trusting and using NBTBadminton! We will help you understand our collection, use, storage and sharing of personal information through the User Agreement and the Privacy Policy, in particular the relationship between the types of personal information we collect and the purposes for which we use it. In addition, you will learn about your rights and how to achieve them. If you agree, please click the button below to start receiving our services"
+    },
+    {
+      "name": "Agree_Label",
+      "value": "Agree"
+    },
+    {
+      "name": "Cancel_Label",
+      "value": "Cancel"
     }
   ]
 }
