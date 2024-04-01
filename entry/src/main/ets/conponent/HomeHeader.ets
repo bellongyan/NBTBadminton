@@ -29,7 +29,7 @@ export default struct HomeHeader {
       }.justifyContent(FlexAlign.Center)
       .alignItems(VerticalAlign.Bottom)
       .padding({
-        top: CommonConstants.DEFAULT_32,
+        top: CommonConstants.DEFAULT_16,
         bottom: CommonConstants.DEFAULT_10,
         left: CommonConstants.DEFAULT_10,
         right: CommonConstants.DEFAULT_10

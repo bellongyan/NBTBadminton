@@ -1,7 +1,10 @@
 import axios from '@ohos/axios'
+import PreferenceUtil from '../../../common/utils/PreferenceUtil'
 import { CommonConstants } from '../../../common/constants/CommonConstants'
 import HomeHeader from '../../../conponent/HomeHeader'
 import Rank from '../../../viewmodel/Rank'
+
+const JWT_KEY = 'userJwtKey'
 
 @Extend(Button)
 function contentSelectButton() {
@@ -15,19 +18,21 @@ function contentSelectButton() {
 
 @Component
 export default struct WorldRank {
+  @State jwt: string = ''
   @State ranks: Rank[] = []
 
-  aboutToAppear() {
+  async aboutToAppear() {
+    let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
+    this.jwt = jwt_data.toString()
     axios.get("http://192.168.43.177:8080/ranks/1/6", {
       params: { attribute: 1, type: 6 },
       headers:
       {
-        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+        "Authorization": jwt_data.toString()
       }
     }).then(response => {
       if (response.data.code === 0) {
         let obj = JSON.parse(JSON.stringify(response.data.data))
-        // Object.assign(this.ranks, obj)
         this.ranks = obj
       }
     })
@@ -45,7 +50,7 @@ export default struct WorldRank {
             params: { attribute: 1, type: 6 },
             headers:
             {
-              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+              "Authorization": this.jwt
             }
           }).then(response => {
             if (response.data.code === 0) {
@@ -61,7 +66,7 @@ export default struct WorldRank {
             params: { attribute: 1, type: 7 },
             headers:
             {
-              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+              "Authorization": this.jwt
             }
           }).then(response => {
             if (response.data.code === 0) {
@@ -77,7 +82,7 @@ export default struct WorldRank {
             params: { attribute: 1, type: 8 },
             headers:
             {
-              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+              "Authorization": this.jwt
             }
           }).then(response => {
             if (response.data.code === 0) {
@@ -93,7 +98,7 @@ export default struct WorldRank {
             params: { attribute: 1, type: 9 },
             headers:
             {
-              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+              "Authorization": this.jwt
             }
           }).then(response => {
             if (response.data.code === 0) {
@@ -109,7 +114,7 @@ export default struct WorldRank {
             params: { attribute: 1, type: 10 },
             headers:
             {
-              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+              "Authorization": this.jwt
             }
           }).then(response => {
             if (response.data.code === 0) {
@@ -132,10 +137,13 @@ export default struct WorldRank {
 
         Text('积分').fontSize(16)
       }
+      .alignItems(VerticalAlign.Center)
+      .justifyContent(FlexAlign.Center)
       .backgroundColor($r('app.color.light_red'))
       .width('100%')
       .height(40)
 
+      //   数据
       List() {
         ForEach(this.ranks, (item: Rank) => {
           ListItem() {
@@ -149,7 +157,6 @@ export default struct WorldRank {
       .height('100%')
       .layoutWeight(1)
 
-      //   数据
     }
     .width('100%')
     .height('100%')
