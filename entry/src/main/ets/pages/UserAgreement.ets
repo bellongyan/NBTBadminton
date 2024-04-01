@@ -1,5 +1,5 @@
 import { CommonConstants } from '../common/constants/CommonConstants'
-import Header from '../conponent/Header'
+import LoginRegisterHeader from '../conponent/LoginRegisterHeader'
 
 @Extend(Text)
 function contentSytle() {
@@ -12,7 +12,7 @@ struct UserAgreement {
   build() {
     Column() {
       //   顶部标题
-      Header({ title: $r('app.string.User_Agreement_Title') })
+      LoginRegisterHeader({ title: $r('app.string.User_Agreement_Title') })
 
       Scroll() {
         //   正文

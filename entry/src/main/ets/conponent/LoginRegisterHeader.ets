@@ -2,7 +2,7 @@ import router from '@ohos.router'
 import { CommonConstants } from '../common/constants/CommonConstants'
 
 @Component
-export default struct Header {
+export default struct LoginRegisterHeader {
   title: ResourceStr
 
   build() {

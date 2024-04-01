@@ -1,5 +1,5 @@
 import { CommonConstants } from '../common/constants/CommonConstants'
-import Header from '../conponent/Header'
+import LoginRegisterHeader from '../conponent/LoginRegisterHeader'
 import LoginBody from '../view/login/LoginBody'
 
 @Entry
@@ -11,7 +11,7 @@ struct Login {
 
   build() {
     Column() {
-      Header({ title: $r('app.string.Login_Title') })
+      LoginRegisterHeader({ title: $r('app.string.Login_Title') })
       Column({ space: CommonConstants.SPACE_10 }) {
         Text('账号密码登录').fontWeight(CommonConstants.FONT_WEIGHT_700)
           .fontSize(32)

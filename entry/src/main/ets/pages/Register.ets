@@ -1,4 +1,4 @@
-import Header from '../conponent/Header'
+import LoginRegisterHeader from '../conponent/LoginRegisterHeader'
 import RegisterBody from '../view/register/RegisterBody'
 
 @Entry
@@ -8,7 +8,7 @@ struct Register {
 
   build() {
     Column() {
-      Header({ title: $r('app.string.Register_Title') })
+      LoginRegisterHeader({ title: $r('app.string.Register_Title') })
 
       Column() {
         RegisterBody({ isCheck: this.isCheck })
