@@ -1,4 +1,5 @@
 import { CommonConstants } from '../common/constants/CommonConstants'
+import Header from '../conponent/Header'
 import LoginBody from '../view/login/LoginBody'
 
 @Entry
@@ -10,15 +11,22 @@ struct Login {
 
   build() {
     Column({ space: CommonConstants.SPACE_10 }) {
-      Text('账号密码登录').fontWeight(CommonConstants.FONT_WEIGHT_700)
-        .fontSize(32)
+      Header({ title: $r('app.string.Login_Title') })
+      Column() {
 
-      LoginBody({ username: this.username, password: this.password, isCheck: this.isCheck })
+        Text('账号密码登录').fontWeight(CommonConstants.FONT_WEIGHT_700)
+          .fontSize(32)
 
-      Text('忘记密码')
+        LoginBody({ username: this.username, password: this.password, isCheck: this.isCheck })
+
+        Text('忘记密码')
+      }
+      .layoutWeight(1)
+      .justifyContent(FlexAlign.SpaceEvenly)
+      .alignItems(HorizontalAlign.Center)
+      .width('100%')
+      .height('100%')
     }
-    .justifyContent(FlexAlign.SpaceEvenly)
-    .alignItems(HorizontalAlign.Center)
     .width('100%')
     .height('100%')
   }

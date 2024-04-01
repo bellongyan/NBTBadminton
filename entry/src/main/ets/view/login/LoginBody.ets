@@ -30,7 +30,11 @@ export default struct LoginBody {
       Row() {
         Checkbox().onChange((value: boolean) => this.isCheck = value)
         Text('同意')
-        Text('用户协议').fontWeight(FontWeight.Bold)
+        Text('用户协议').fontWeight(FontWeight.Bold).onClick(() => {
+          router.pushUrl({
+            url: 'pages/UserAgreement'
+          })
+        })
         Text('和')
         Text('隐私政策').fontWeight(FontWeight.Bold)
       }
