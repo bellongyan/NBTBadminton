@@ -1,7 +1,6 @@
 import axios from '@ohos/axios'
 import PreferenceUtil from '../../../common/utils/PreferenceUtil'
 import { CommonConstants } from '../../../common/constants/CommonConstants'
-import HomeHeader from '../../../conponent/HomeHeader'
 import Rank from '../../../viewmodel/Rank'
 import RankBase from './RankBase'
 
@@ -15,7 +14,7 @@ export default struct YouthRank {
   async aboutToAppear() {
     let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
     this.jwt = jwt_data.toString()
-    axios.get("http://192.168.43.177:8080/ranks", {
+    axios.get(CommonConstants.BASE_URL + "/ranks", {
       params: { attribute: 4, type: 6 },
       headers:
       {

@@ -5,6 +5,7 @@
     "pages/UserAgreement",
     "pages/Register",
     "pages/Welcome",
-    "pages/explore/Rank"
+    "pages/explore/Rank",
+    "pages/explore/EventCalendar"
   ]
 }

@@ -30,7 +30,7 @@ export default struct RankBase {
 
         // 男子单打
         Button($r('app.string.man_single')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get("http://192.168.43.177:8080/ranks", {
+          axios.get(CommonConstants.BASE_URL + "/ranks", {
             params: { attribute: this.attribute, type: 6 },
             headers:
             {
@@ -46,7 +46,7 @@ export default struct RankBase {
 
         // 女子单打
         Button($r('app.string.woman_single')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get("http://192.168.43.177:8080/ranks", {
+          axios.get(CommonConstants.BASE_URL + "/ranks", {
             params: { attribute: this.attribute, type: 7 },
             headers:
             {
@@ -62,7 +62,7 @@ export default struct RankBase {
 
         // 男子双打
         Button($r('app.string.man_double')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get("http://192.168.43.177:8080/ranks", {
+          axios.get(CommonConstants.BASE_URL + "/ranks", {
             params: { attribute: this.attribute, type: 8 },
             headers:
             {
@@ -78,7 +78,7 @@ export default struct RankBase {
 
         // 女子双打
         Button($r('app.string.women_double')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get("http://192.168.43.177:8080/ranks", {
+          axios.get(CommonConstants.BASE_URL + "/ranks", {
             params: { attribute: this.attribute, type: 9 },
             headers:
             {
@@ -94,7 +94,7 @@ export default struct RankBase {
 
         // 混合双打
         Button($r('app.string.mixed_doubles')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get("http://192.168.43.177:8080/ranks", {
+          axios.get(CommonConstants.BASE_URL + "/ranks", {
             params: { attribute: this.attribute, type: 10 },
             headers:
             {

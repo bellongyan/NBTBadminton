@@ -15,7 +15,7 @@ export default struct OlympicRank {
   async aboutToAppear() {
     let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
     this.jwt = jwt_data.toString()
-    axios.get("http://192.168.43.177:8080/ranks", {
+    axios.get(CommonConstants.BASE_URL + "/ranks", {
       params: { attribute: 3, type: 6 },
       headers:
       {

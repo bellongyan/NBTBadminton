@@ -19,7 +19,7 @@ export default struct Explore {
         image: $r("app.media.calendar"),
         name: '赛事日历',
         explain: '2024年赛事',
-        routerPage: 'pages/Index'
+        routerPage: 'pages/explore/EventCalendar'
       })
 
       this.ItemCard({

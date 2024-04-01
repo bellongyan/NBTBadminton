@@ -62,4 +62,6 @@ export class CommonConstants {
   static readonly H_STORE: string = 'NBTBadmintonStore';
   static readonly PACKAGE_NAME: string = 'com.longyan.nbtbadminton';
   static readonly ENTRY_ABILITY: string = 'EntryAbility';
+  // base url
+  static readonly BASE_URL: string = 'http://192.168.43.177:8080'
 }
