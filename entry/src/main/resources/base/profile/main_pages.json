@@ -4,6 +4,7 @@
     "pages/Login",
     "pages/UserAgreement",
     "pages/Register",
-    "pages/Welcome"
+    "pages/Welcome",
+    "pages/explore/Rank"
   ]
 }

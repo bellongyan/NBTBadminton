@@ -111,6 +111,46 @@
     {
       "name": "Cancel_Label",
       "value": "Cancel"
+    },
+    {
+      "name": "main_page",
+      "value": "Main"
+    },
+    {
+      "name": "community",
+      "value": "Community"
+    },
+    {
+      "name": "explore",
+      "value": "Explore"
+    },
+    {
+      "name": "message",
+      "value": "Message"
+    },
+    {
+      "name": "me",
+      "value": "Me"
+    },
+    {
+      "name": "man_single",
+      "value": "Men's singles"
+    },
+    {
+      "name": "man_double",
+      "value": "Men's doubles"
+    },
+    {
+      "name": "women_double",
+      "value": "Women's doubles"
+    },
+    {
+      "name": "mixed_doubles",
+      "value": "Mixed doubles"
+    },
+    {
+      "name": "woman_single",
+      "value": "Women's singles"
     }
   ]
 }

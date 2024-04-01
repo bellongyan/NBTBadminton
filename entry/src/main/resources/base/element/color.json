@@ -34,11 +34,15 @@
     },
     {
       "name": "light_red",
-      "value": "#ff7675"
+      "value": "#ecd9dd"
     },
     {
-      "name": "yellow_lemon",
-      "value": "#ffeaa7"
+      "name": "yellow",
+      "value": "#FFBE98"
+    },
+    {
+      "name": "light_yellow",
+      "value": "#FBF3D5"
     },
     {
       "name": "pink",

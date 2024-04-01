@@ -1,4 +1,5 @@
 import { CommonConstants } from '../common/constants/CommonConstants'
+import Explore from '../view/explore/Explore'
 import Home from '../view/home/Home'
 
 @Entry
@@ -18,7 +19,7 @@ struct Index {
       }.tabBar(this.TabBarBuilder($r('app.string.community'), $r('app.media.community'), 1))
 
       TabContent() {
-        Text('发现')
+        Explore()
       }.tabBar(this.TabBarBuilder($r('app.string.explore'), $r('app.media.explore'), 2))
 
       TabContent() {

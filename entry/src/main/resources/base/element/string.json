@@ -111,6 +111,46 @@
     {
       "name": "Cancel_Label",
       "value": "取消"
+    },
+    {
+      "name": "main_page",
+      "value": "首页"
+    },
+    {
+      "name": "community",
+      "value": "社区"
+    },
+    {
+      "name": "explore",
+      "value": "发现"
+    },
+    {
+      "name": "message",
+      "value": "消息"
+    },
+    {
+      "name": "me",
+      "value": "我"
+    },
+    {
+      "name": "man_single",
+      "value": "男单"
+    },
+    {
+      "name": "woman_single",
+      "value": "女单"
+    },
+    {
+      "name": "man_double",
+      "value": "男双"
+    },
+    {
+      "name": "women_double",
+      "value": "女双"
+    },
+    {
+      "name": "mixed_doubles",
+      "value": "混双"
     }
   ]
 }
