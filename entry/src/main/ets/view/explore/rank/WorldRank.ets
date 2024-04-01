@@ -1,5 +1,7 @@
+import axios from '@ohos/axios'
 import { CommonConstants } from '../../../common/constants/CommonConstants'
 import HomeHeader from '../../../conponent/HomeHeader'
+import Rank from '../../../viewmodel/Rank'
 
 @Extend(Button)
 function contentSelectButton() {
@@ -13,29 +15,137 @@ function contentSelectButton() {
 
 @Component
 export default struct WorldRank {
+  @State ranks: Rank[] = []
+
+  aboutToAppear() {
+    axios.get("http://192.168.43.177:8080/ranks/1/6", {
+      params: { attribute: 1, type: 6 },
+      headers:
+      {
+        "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+      }
+    }).then(response => {
+      if (response.data.code === 0) {
+        let obj = JSON.parse(JSON.stringify(response.data.data))
+        // Object.assign(this.ranks, obj)
+        this.ranks = obj
+      }
+    })
+  }
+
   build() {
     Column({ space: CommonConstants.SPACE_4 }) {
       HomeHeader({ isBack: true, title: '世界排名', headerBackgroundColor: $r('app.color.red') })
 
       Row({ space: CommonConstants.SPACE_6 }) {
-        Button($r('app.string.man_single')).contentSelectButton()
-        Button($r('app.string.woman_single')).contentSelectButton()
-        Button($r('app.string.man_double')).contentSelectButton()
-        Button($r('app.string.women_double')).contentSelectButton()
-        Button($r('app.string.mixed_doubles')).contentSelectButton()
+
+        // 男子单打
+        Button($r('app.string.man_single')).contentSelectButton().onClick(() => {
+          axios.get("http://192.168.43.177:8080/ranks/1/6", {
+            params: { attribute: 1, type: 6 },
+            headers:
+            {
+              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+            }
+          }).then(response => {
+            if (response.data.code === 0) {
+              let obj = JSON.parse(JSON.stringify(response.data.data))
+              this.ranks = obj
+            }
+          })
+        })
+
+        // 女子单打
+        Button($r('app.string.woman_single')).contentSelectButton().onClick(() => {
+          axios.get("http://192.168.43.177:8080/ranks/1/7", {
+            params: { attribute: 1, type: 7 },
+            headers:
+            {
+              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+            }
+          }).then(response => {
+            if (response.data.code === 0) {
+              let obj = JSON.parse(JSON.stringify(response.data.data))
+              this.ranks = obj
+            }
+          })
+        })
+
+        // 男子双打
+        Button($r('app.string.man_double')).contentSelectButton().onClick(() => {
+          axios.get("http://192.168.43.177:8080/ranks/1/8", {
+            params: { attribute: 1, type: 8 },
+            headers:
+            {
+              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+            }
+          }).then(response => {
+            if (response.data.code === 0) {
+              let obj = JSON.parse(JSON.stringify(response.data.data))
+              this.ranks = obj
+            }
+          })
+        })
+
+        // 女子双打
+        Button($r('app.string.women_double')).contentSelectButton().onClick(() => {
+          axios.get("http://192.168.43.177:8080/ranks/1/9", {
+            params: { attribute: 1, type: 9 },
+            headers:
+            {
+              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+            }
+          }).then(response => {
+            if (response.data.code === 0) {
+              let obj = JSON.parse(JSON.stringify(response.data.data))
+              this.ranks = obj
+            }
+          })
+        })
+
+        // 混合双打
+        Button($r('app.string.mixed_doubles')).contentSelectButton().onClick(() => {
+          axios.get("http://192.168.43.177:8080/ranks/1/10", {
+            params: { attribute: 1, type: 10 },
+            headers:
+            {
+              "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMTk3NjI1Mn0.H6Ropo09ASF2E2MonuHWOVcnQKTIrxSGnlKNqOXDNNE"
+            }
+          }).then(response => {
+            if (response.data.code === 0) {
+              let obj = JSON.parse(JSON.stringify(response.data.data))
+              this.ranks = obj
+            }
+          })
+        })
       }
       .justifyContent(FlexAlign.Center)
       .width('100%')
 
+      Row() {
+        Text('排名').fontSize(16).width(40)
+        Text('国家').fontSize(16)
+
+        Column() {
+          Text('球员').fontSize(16)
+        }.layoutWeight(1)
+
+        Text('积分').fontSize(16)
+      }
+      .backgroundColor($r('app.color.light_red'))
+      .width('100%')
+      .height(40)
+
       List() {
-        ForEach([1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 1, 2, 3, 4, 5, 6, 7, 8, 0], item => {
+        ForEach(this.ranks, (item: Rank) => {
           ListItem() {
-            Column() {
-              Text(item.toString())
+            Row() {
+              this.RankCard(item)
             }
           }
         })
-      }.width('100%')
+      }
+      .width('100%')
       .height('100%')
       .layoutWeight(1)
 
@@ -43,5 +153,39 @@ export default struct WorldRank {
     }
     .width('100%')
     .height('100%')
+  }
+
+  @Builder
+  RankCard($$: {
+    rank: number,
+    country: string,
+    secondCountry?: string,
+    name: string,
+    nameChinese: string,
+    secondName?: string,
+    secondNameChinese?: string,
+    score: number
+  }) {
+    Row() {
+      Text($$.rank.toString()).fontSize(20).fontWeight(FontWeight.Bold).width(40)
+      Column() {
+        Text($$.country).fontSize(14)
+        Text($$.secondCountry).fontSize(14)
+      }
+
+      Column() {
+        Text($$.nameChinese).fontSize(14)
+        Text($$.name).fontSize(10)
+        Text($$.secondNameChinese).fontSize(14)
+        Text($$.secondName).fontSize(10)
+      }.layoutWeight(1)
+
+      Text($$.score.toString()).fontSize(16)
+    }
+    .alignItems(VerticalAlign.Center)
+    .justifyContent(FlexAlign.Center)
+    .backgroundColor(Color.White)
+    .width('94%')
+    .height(70)
   }
 }
