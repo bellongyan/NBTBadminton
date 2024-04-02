@@ -11,6 +11,7 @@
   "dynamicDependencies": {},
   "dependencies": {
     "@ohos/crypto-js": "^2.0.3",
-    "@ohos/axios": "^2.2.0"
+    "@ohos/axios": "^2.2.0",
+    "@mcui/mccharts": "^1.0.2"
   }
 }

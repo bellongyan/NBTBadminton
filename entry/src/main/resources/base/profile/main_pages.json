@@ -6,6 +6,7 @@
     "pages/Register",
     "pages/Welcome",
     "pages/explore/Rank",
-    "pages/explore/EventCalendar"
+    "pages/explore/EventCalendar",
+    "pages/explore/ScoreRecord"
   ]
 }
