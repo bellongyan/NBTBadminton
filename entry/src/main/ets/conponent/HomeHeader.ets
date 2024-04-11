@@ -26,7 +26,8 @@ export default struct HomeHeader {
           Blank()
           Image($r('app.media.back')).height(20).fillColor(this.headerBackgroundColor)
         }
-      }.justifyContent(FlexAlign.Center)
+      }
+      .justifyContent(FlexAlign.Center)
       .alignItems(VerticalAlign.Bottom)
       .padding({
         top: CommonConstants.DEFAULT_16,

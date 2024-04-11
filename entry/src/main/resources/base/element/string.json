@@ -151,6 +151,14 @@
     {
       "name": "mixed_doubles",
       "value": "混双"
+    },
+    {
+      "name": "prompt_select_img",
+      "value": "请选择图片进行上传"
+    },
+    {
+      "name": "upload_error_message",
+      "value": "上传文件失败，请重试！"
     }
   ]
 }

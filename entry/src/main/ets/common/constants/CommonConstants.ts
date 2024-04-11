@@ -64,4 +64,36 @@ export class CommonConstants {
   static readonly ENTRY_ABILITY: string = 'EntryAbility';
   // base url
   static readonly BASE_URL: string = 'http://192.168.43.177:8080'
+  /**
+   * The request success status code.
+   */
+  static readonly SERVER_CODE_SUCCESS: string = 'success';
+  /**
+   * UploadFile
+   */
+  static readonly IMAGE_PREFIX: string = '/images/';
+}
+
+/**
+ * The file upload state enum.
+ */
+export const enum UploadingState {
+  COMPLETE = 'complete',
+  FAIL = 'fail'
+}
+
+/**
+ * The request method enum.
+ */
+export const enum RequestMethod {
+  POST = 'POST',
+  GET = 'GET'
+}
+
+/**
+ * The request content type enum.
+ */
+export const enum ContentType {
+  JSON = 'application/json',
+  FORM = 'multipart/form-data'
 }

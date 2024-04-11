@@ -151,6 +151,14 @@
     {
       "name": "woman_single",
       "value": "Women's singles"
+    },
+    {
+      "name": "prompt_select_img",
+      "value": "Select an image to upload."
+    },
+    {
+      "name": "upload_error_message",
+      "value": "Upload file failed, please try again!"
     }
   ]
 }
