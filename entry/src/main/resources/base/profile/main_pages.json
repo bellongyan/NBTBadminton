@@ -8,6 +8,7 @@
     "pages/explore/Rank",
     "pages/explore/EventCalendar",
     "pages/explore/ScoreRecord",
-    "pages/article/ArticlesEditPage"
+    "pages/article/ArticlesEditPage",
+    "pages/article/ArticleDetailPage"
   ]
 }

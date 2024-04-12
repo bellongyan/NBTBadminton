@@ -26,7 +26,7 @@ export default struct Explore {
         image: $r("app.media.contest"),
         name: '计分工具',
         explain: '个人比赛计分工具',
-        routerPage: 'pages/Index'
+        routerPage: 'pages/explore/ScoreRecord'
       })
 
     }.width('100%')
