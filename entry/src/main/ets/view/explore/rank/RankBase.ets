@@ -30,8 +30,7 @@ export default struct RankBase {
 
         // 男子单打
         Button($r('app.string.man_single')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get(CommonConstants.BASE_URL + "/ranks", {
-            params: { attribute: this.attribute, type: 6 },
+          axios.get(CommonConstants.BASE_URL + `/ranks/${this.attribute}/6`, {
             headers:
             {
               "Authorization": this.jwt
@@ -46,8 +45,7 @@ export default struct RankBase {
 
         // 女子单打
         Button($r('app.string.woman_single')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get(CommonConstants.BASE_URL + "/ranks", {
-            params: { attribute: this.attribute, type: 7 },
+          axios.get(CommonConstants.BASE_URL + `/ranks/${this.attribute}/7`, {
             headers:
             {
               "Authorization": this.jwt
@@ -62,8 +60,7 @@ export default struct RankBase {
 
         // 男子双打
         Button($r('app.string.man_double')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get(CommonConstants.BASE_URL + "/ranks", {
-            params: { attribute: this.attribute, type: 8 },
+          axios.get(CommonConstants.BASE_URL + `/ranks/${this.attribute}/8`, {
             headers:
             {
               "Authorization": this.jwt
@@ -78,8 +75,7 @@ export default struct RankBase {
 
         // 女子双打
         Button($r('app.string.women_double')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get(CommonConstants.BASE_URL + "/ranks", {
-            params: { attribute: this.attribute, type: 9 },
+          axios.get(CommonConstants.BASE_URL + `/ranks/${this.attribute}/9`, {
             headers:
             {
               "Authorization": this.jwt
@@ -94,8 +90,7 @@ export default struct RankBase {
 
         // 混合双打
         Button($r('app.string.mixed_doubles')).contentSelectButton(this.bgColor, this.fColor).onClick(() => {
-          axios.get(CommonConstants.BASE_URL + "/ranks", {
-            params: { attribute: this.attribute, type: 10 },
+          axios.get(CommonConstants.BASE_URL + `/ranks/${this.attribute}/10`, {
             headers:
             {
               "Authorization": this.jwt

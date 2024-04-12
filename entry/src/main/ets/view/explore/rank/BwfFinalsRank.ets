@@ -15,8 +15,7 @@ export default struct BwfFinalsRank {
   async aboutToAppear() {
     let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
     this.jwt = jwt_data.toString()
-    axios.get(CommonConstants.BASE_URL + "/ranks", {
-      params: { attribute: 2, type: 6 },
+    axios.get(CommonConstants.BASE_URL + "/ranks/2/6", {
       headers:
       {
         "Authorization": jwt_data.toString()
