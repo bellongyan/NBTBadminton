@@ -6,6 +6,7 @@ import Jwt from '../viewmodel/Jwt'
 import systemDateTime from '@ohos.systemDateTime'
 import Base64Util from '../common/utils/Base64Util'
 import ExpireDialog from '../view/dialog/ExpireDialog'
+import Community from '../view/community/Community'
 
 const JWT_KEY = 'userJwtKey'
 
@@ -55,7 +56,7 @@ struct Index {
       }.tabBar(this.TabBarBuilder($r('app.string.main_page'), $r('app.media.home'), 0))
 
       TabContent() {
-        Text('社区')
+        Community()
       }.tabBar(this.TabBarBuilder($r('app.string.community'), $r('app.media.community'), 1))
 
       TabContent() {

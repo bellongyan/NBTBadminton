@@ -9,6 +9,7 @@
     "pages/explore/EventCalendar",
     "pages/explore/ScoreRecord",
     "pages/article/ArticlesEditPage",
-    "pages/article/ArticleDetailPage"
+    "pages/article/ArticleDetailPage",
+    "pages/article/CategoryArticlesPage"
   ]
 }
