@@ -7,7 +7,7 @@ import systemDateTime from '@ohos.systemDateTime'
 import Base64Util from '../common/utils/Base64Util'
 import ExpireDialog from '../view/dialog/ExpireDialog'
 import Community from '../view/community/Community'
-import MainPage from '../view/main/MainPage'
+import MainTabs from '../view/main/MainTabs'
 
 const JWT_KEY = 'userJwtKey'
 
@@ -54,7 +54,7 @@ struct Index {
   build() {
     Tabs({ barPosition: BarPosition.End }) {
       TabContent() {
-        MainPage()
+        MainTabs()
       }.tabBar(this.TabBarBuilder($r('app.string.main_page'), $r('app.media.home'), 0))
 
       TabContent() {

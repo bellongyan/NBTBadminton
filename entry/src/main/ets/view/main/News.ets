@@ -1,23 +1,16 @@
-import router from '@ohos.router';
-import axios from '@ohos/axios';
-import { CommonConstants } from '../../common/constants/CommonConstants';
-import HomeHeader from '../../conponent/HomeHeader'
-import Article from '../../viewmodel/Article';
+import axios from '@ohos/axios'
+import router from '@ohos.router'
+import { CommonConstants } from '../../common/constants/CommonConstants'
+import Article from '../../viewmodel/Article'
 
-@Entry
 @Component
-struct CategoryArticlesPage {
+export default struct News {
   @State categoryName: string = ''
-  @State categoryId: number = 1
   @State articleList: Article[] = []
   @State pageNum: number = 1
   @State isLoading: boolean = false
 
   aboutToAppear() {
-    let params = router.getParams();
-    this.categoryName = params['categoryName']
-    this.categoryId = params['categoryId']
-    console.log(`categoryId: ${this.categoryId} + categoryName: ${this.categoryName}`)
 
     axios('http://192.168.43.177:8080/articles', {
       headers: {
@@ -26,7 +19,7 @@ struct CategoryArticlesPage {
       params: {
         pageNum: this.pageNum,
         pageSize: 10,
-        categoryId: this.categoryId
+        categoryId: 22
       }
     }).then((response) => {
       let articleData = JSON.parse(JSON.stringify(response.data.data.items))
@@ -37,65 +30,61 @@ struct CategoryArticlesPage {
   }
 
   build() {
-    Column() {
-      HomeHeader({ isBack: true, title: this.categoryName, headerBackgroundColor: $r('app.color.green_badminton') })
 
-      List({ space: CommonConstants.SPACE_10 }) {
-        ForEach(this.articleList, (item: Article) => {
-          ListItem() {
-            this.articleCard({
-              articleId: item.articleId,
-              articleTitle: item.articleTitle,
-              content: item.content,
-              coverImg: item.coverImg,
-              categoryId: item.categoryId,
-              authorId: item.authorId,
-              createTime: item.createTime,
-              likeNum: item.likeNum,
-              commentNum: item.commentNum,
-              collectNum: item.collectNum
-            })
-          }
-          .onClick(() => {
-            router.pushUrl({
-              url: 'pages/article/ArticleDetailPage',
-              params: {
-                articleId: item.articleId
-              }
-            })
+    List({ space: CommonConstants.SPACE_10 }) {
+      ForEach(this.articleList, (item: Article) => {
+        ListItem() {
+          this.articleCard({
+            articleId: item.articleId,
+            articleTitle: item.articleTitle,
+            content: item.content,
+            coverImg: item.coverImg,
+            categoryId: item.categoryId,
+            authorId: item.authorId,
+            createTime: item.createTime,
+            likeNum: item.likeNum,
+            commentNum: item.commentNum,
+            collectNum: item.collectNum
+          })
+        }
+        .onClick(() => {
+          router.pushUrl({
+            url: 'pages/article/ArticleDetailPage',
+            params: {
+              articleId: item.articleId
+            }
           })
         })
-      }
-      .height('100%')
-      .width(CommonConstants.THOUSANDTH_940)
-      .margin({ top: 20, bottom: 20 })
-      .onReachEnd(() => {
-        console.log('触底了')
-        if (!this.isLoading) {
-          this.isLoading = true
-          console.log('加载数据')
-          axios('http://192.168.43.177:8080/articles', {
-            headers: {
-              Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxNDAyMDQ1MH0.RSLgGjjFXcI0V2XrMlikRF4Ynh_JJrJi7b3X0p-1MB8'
-            },
-            params: {
-              pageNum: ++this.pageNum,
-              pageSize: 10,
-              categoryId: this.categoryId
-            }
-          }).then((response) => {
-            let articleData = JSON.parse(JSON.stringify(response.data.data.items))
-            this.articleList = this.articleList.concat(articleData)
-            this.isLoading = false
-          }).catch((error) => {
-            console.log(error);
-          });
-        }
       })
-      .layoutWeight(1)
     }
-    .width('100%')
     .height('100%')
+    .width(CommonConstants.THOUSANDTH_940)
+    .margin({ bottom: 20 })
+    .onReachEnd(() => {
+      console.log('触底了')
+      if (!this.isLoading) {
+        this.isLoading = true
+        console.log('加载数据')
+        axios('http://192.168.43.177:8080/articles', {
+          headers: {
+            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxNDAyMDQ1MH0.RSLgGjjFXcI0V2XrMlikRF4Ynh_JJrJi7b3X0p-1MB8'
+          },
+          params: {
+            pageNum: ++this.pageNum,
+            pageSize: 10,
+            categoryId: 22
+          }
+        }).then((response) => {
+          let articleData = JSON.parse(JSON.stringify(response.data.data.items))
+          this.articleList = this.articleList.concat(articleData)
+          this.isLoading = false
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
+    })
+    .layoutWeight(1)
+
   }
 
   @Builder
