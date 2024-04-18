@@ -1,5 +1,5 @@
-import { CommonConstants } from '../common/constants/CommonConstants'
-import LoginRegisterHeader from '../conponent/LoginRegisterHeader'
+import { CommonConstants } from '../../common/constants/CommonConstants'
+import LoginRegisterHeader from '../../conponent/LoginRegisterHeader'
 
 @Extend(Text)
 function contentSytle() {

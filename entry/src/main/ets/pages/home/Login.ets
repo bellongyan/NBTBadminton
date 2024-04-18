@@ -1,6 +1,6 @@
-import { CommonConstants } from '../common/constants/CommonConstants'
-import LoginRegisterHeader from '../conponent/LoginRegisterHeader'
-import LoginBody from '../view/login/LoginBody'
+import { CommonConstants } from '../../common/constants/CommonConstants'
+import LoginRegisterHeader from '../../conponent/LoginRegisterHeader'
+import LoginBody from '../../view/login/LoginBody'
 
 @Entry
 @Component

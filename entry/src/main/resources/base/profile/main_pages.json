@@ -1,9 +1,9 @@
 {
   "src": [
     "pages/Index",
-    "pages/Login",
-    "pages/UserAgreement",
-    "pages/Register",
+    "pages/home/Login",
+    "pages/home/UserAgreement",
+    "pages/home/Register",
     "pages/Welcome",
     "pages/explore/Rank",
     "pages/explore/EventCalendar",

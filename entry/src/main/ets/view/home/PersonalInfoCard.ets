@@ -53,7 +53,7 @@ export default struct PersonalInfoCard {
         }
         .onClick(() => {
           router.pushUrl({
-            url: 'pages/Login'
+            url: 'pages/home/Login'
           })
         })
         .justifyContent(FlexAlign.Center)

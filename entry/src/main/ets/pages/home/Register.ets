@@ -1,5 +1,5 @@
-import LoginRegisterHeader from '../conponent/LoginRegisterHeader'
-import RegisterBody from '../view/register/RegisterBody'
+import LoginRegisterHeader from '../../conponent/LoginRegisterHeader'
+import RegisterBody from '../../view/register/RegisterBody'
 
 @Entry
 @Component

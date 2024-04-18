@@ -36,7 +36,7 @@ export default struct LoginBody {
         Text('同意')
         Text('用户协议').fontWeight(FontWeight.Bold).onClick(() => {
           router.pushUrl({
-            url: 'pages/UserAgreement'
+            url: 'pages/home/UserAgreement'
           })
         })
         Text('和')
@@ -71,7 +71,7 @@ export default struct LoginBody {
       Button('注册').type(ButtonType.Normal).width(300)
         .onClick(() => {
           router.pushUrl({
-            url: 'pages/Register'
+            url: 'pages/home/Register'
           })
         })
     }

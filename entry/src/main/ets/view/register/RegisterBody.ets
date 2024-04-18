@@ -117,7 +117,7 @@ export default struct RegisterBody {
           Text('同意')
           Text('用户协议').fontWeight(FontWeight.Bold).onClick(() => {
             router.pushUrl({
-              url: 'pages/UserAgreement'
+              url: 'pages/home/UserAgreement'
             })
           })
           Text('和')
