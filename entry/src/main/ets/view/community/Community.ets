@@ -7,7 +7,6 @@ import Category from '../../viewmodel/Category';
 @Component
 export default struct Community {
   @State categories: Category[] = []
-  @State categoryId: number = 1
 
   aboutToAppear() {
     axios('http://192.168.43.177:8080/categories', {
@@ -39,11 +38,11 @@ export default struct Community {
               .textOverflow({ overflow: TextOverflow.Ellipsis })
           }
           .onClick(() => {
-            this.categoryId = item.id
             router.pushUrl({
               url: 'pages/article/CategoryArticlesPage',
               params: {
-                categoryId: this.categoryId
+                categoryName: item.categoryName,
+                categoryId: item.id
               }
             })
           })

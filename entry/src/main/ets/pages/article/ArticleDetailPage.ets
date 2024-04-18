@@ -1,3 +1,4 @@
+import router from '@ohos.router';
 import HomeHeader from '../../conponent/HomeHeader'
 import ArticleInfo from '../../view/article/ArticleInfo';
 import EndInfo from '../../view/article/EndInfo';
@@ -10,6 +11,10 @@ struct ArticleDetailPage {
   @State commentNum: number = 0
   @State collectNum: number = 0
   scroller: Scroller = new Scroller()
+
+  aboutToAppear() {
+    this.articleId = router.getParams()['articleId']
+  }
 
   build() {
     Column() {

@@ -7,6 +7,7 @@ import systemDateTime from '@ohos.systemDateTime'
 import Base64Util from '../common/utils/Base64Util'
 import ExpireDialog from '../view/dialog/ExpireDialog'
 import Community from '../view/community/Community'
+import MainPage from '../view/main/MainPage'
 
 const JWT_KEY = 'userJwtKey'
 
@@ -15,6 +16,7 @@ const JWT_KEY = 'userJwtKey'
 struct Index {
   @State currentIndex: number = 0
   @State isPageShow: boolean = false
+  @State isManager: number = 0
   expireDialogController: CustomDialogController = new CustomDialogController({
     builder: ExpireDialog()
   })
@@ -52,7 +54,7 @@ struct Index {
   build() {
     Tabs({ barPosition: BarPosition.End }) {
       TabContent() {
-        Text('首页')
+        MainPage()
       }.tabBar(this.TabBarBuilder($r('app.string.main_page'), $r('app.media.home'), 0))
 
       TabContent() {
@@ -63,9 +65,11 @@ struct Index {
         Explore()
       }.tabBar(this.TabBarBuilder($r('app.string.explore'), $r('app.media.explore'), 2))
 
-      TabContent() {
-        Text('消息')
-      }.tabBar(this.TabBarBuilder($r('app.string.message'), $r('app.media.message'), 3))
+      if (this.isManager === 1) {
+        TabContent() {
+          Text('管理')
+        }.tabBar(this.TabBarBuilder($r('app.string.message'), $r('app.media.message'), 3))
+      }
 
       TabContent() {
         Home()
