@@ -1,5 +1,8 @@
 import axios from '@ohos/axios';
 import { CommonConstants } from '../../common/constants/CommonConstants';
+import PreferenceUtil from '../../common/utils/PreferenceUtil';
+
+const JWT_KEY = 'userJwtKey'
 
 @Component
 export default struct ArticleInfo {
@@ -18,12 +21,15 @@ export default struct ArticleInfo {
   @State sex: number = 1
   @State userPic: string = ''
   @State email: string = ''
+  @State jwt: string = ''
 
-  aboutToAppear() {
+  async aboutToAppear() {
+    let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
+    this.jwt = jwt_data.toString()
 
     axios(CommonConstants.BASE_URL + `/articles/${this.articleId}`, {
       headers: {
-        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMzQzOTc5OH0.wuzPAf4zyFphjK7gQXktAoeWyf-hHAbf3IeZkkWfAis',
+        'Authorization': this.jwt,
       }
     })
       .then((response) => {

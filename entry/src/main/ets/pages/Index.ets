@@ -8,8 +8,11 @@ import Base64Util from '../common/utils/Base64Util'
 import ExpireDialog from '../view/dialog/ExpireDialog'
 import Community from '../view/community/Community'
 import MainTabs from '../view/main/MainTabs'
+import AdminBody from '../view/admin/AdminBody'
+import router from '@ohos.router'
 
 const JWT_KEY = 'userJwtKey'
+const MANAGER_KEY = 'isManagerKey'
 
 @Entry
 @Component
@@ -22,6 +25,10 @@ struct Index {
   })
 
   async aboutToAppear() {
+    // this.isManager = router.getParams()['isManager']
+    let tag = await PreferenceUtil.getPreferenceValue('ManagerPref', MANAGER_KEY, 0)
+    this.isManager = Number(tag.toString())
+    console.log("this.isManager: =====> " + this.isManager)
     let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
     let jwt = jwt_data.toString().split(".")[1]
 
@@ -65,15 +72,15 @@ struct Index {
         Explore()
       }.tabBar(this.TabBarBuilder($r('app.string.explore'), $r('app.media.explore'), 2))
 
-      if (this.isManager === 1) {
-        TabContent() {
-          Text('管理')
-        }.tabBar(this.TabBarBuilder($r('app.string.message'), $r('app.media.message'), 3))
-      }
-
       TabContent() {
         Home()
-      }.tabBar(this.TabBarBuilder($r('app.string.me'), $r('app.media.me'), 4))
+      }.tabBar(this.TabBarBuilder($r('app.string.me'), $r('app.media.me'), 3))
+
+      if (this.isManager === 0) {
+        TabContent() {
+          AdminBody()
+        }.tabBar(this.TabBarBuilder('管理', $r('app.media.message'), 4))
+      }
 
     }
     .width('100%')

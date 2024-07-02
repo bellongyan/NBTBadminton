@@ -145,7 +145,9 @@ export default struct RankBase {
   RankCard($$: {
     rank: number,
     country: string,
+    countryUrl: string,
     secondCountry?: string,
+    secondCountryUrl?: string,
     name: string,
     nameChinese: string,
     secondName?: string,
@@ -156,7 +158,9 @@ export default struct RankBase {
       Text($$.rank.toString()).fontSize(20).fontWeight(FontWeight.Bold).width(40)
       Column() {
         Text($$.country).fontSize(14)
+        Image($$.countryUrl).height(15)
         Text($$.secondCountry).fontSize(14)
+        Image($$.secondCountry).height(15)
       }
 
       Column() {

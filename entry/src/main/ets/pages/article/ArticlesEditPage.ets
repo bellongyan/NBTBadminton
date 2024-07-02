@@ -26,6 +26,7 @@ struct ArticleEditPage {
   async aboutToAppear() {
     let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
     this.jwt = jwt_data.toString()
+
     //   获取所有分类
     var config = {
       method: 'get',
@@ -160,7 +161,6 @@ struct ArticleEditPage {
       }.padding({ top: 50 })
 
     }
-    // .justifyContent(FlexAlign.SpaceBetween)
     .width('100%')
     .height('100%')
     .backgroundColor('#F1F3F5')

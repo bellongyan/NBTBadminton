@@ -1,3 +1,4 @@
+import router from '@ohos.router'
 import { CommonConstants } from '../../common/constants/CommonConstants'
 
 @Component
@@ -22,7 +23,14 @@ export default struct EndInfo {
         }
 
         //发送
-        Button('打开评论区').type(ButtonType.Normal)
+        Button('打开评论区')
+          .type(ButtonType.Normal)
+          .onClick(() => router.pushUrl({
+            url: 'pages/article/ArticleCommentPage',
+            params: {
+              articleId: 1 //TODO 修改此处id
+            }
+          }))
           .backgroundColor($r('app.color.primary_blue'))
           .height(35)
           .borderRadius(20)

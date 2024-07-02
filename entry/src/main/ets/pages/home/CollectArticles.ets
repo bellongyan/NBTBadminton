@@ -1,43 +1,46 @@
-import router from '@ohos.router';
-import axios from '@ohos/axios';
-import { CommonConstants } from '../../common/constants/CommonConstants';
-import PreferenceUtil from '../../common/utils/PreferenceUtil';
+import axios from '@ohos/axios'
+import router from '@ohos.router'
+import { CommonConstants } from '../../common/constants/CommonConstants'
+import PreferenceUtil from '../../common/utils/PreferenceUtil'
 import HomeHeader from '../../conponent/HomeHeader'
-import Article from '../../viewmodel/Article';
+import Article from '../../viewmodel/Article'
+import Base64Util from '../../common/utils/Base64Util'
 
 const JWT_KEY = 'userJwtKey'
 
 @Entry
 @Component
-struct CategoryArticlesPage {
-  @State categoryName: string = ''
-  @State categoryId: number = 1
-  @State articleList: Article[] = []
-  @State pageNum: number = 1
-  @State isLoading: boolean = false
+struct CollectArticles {
   @State jwt: string = ''
+  @State pageNum: number = 1
+  @State userid: string = ''
+  @State articleList: Article[] = []
+  @State isLoading: boolean = false
 
   async aboutToAppear() {
-    let params = router.getParams();
-    this.categoryName = params['categoryName']
-    this.categoryId = params['categoryId']
+    console.log("页面打开中")
     let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
     this.jwt = jwt_data.toString()
 
-    console.log(this.categoryName)
+    let userInfo = jwt_data.toString().split(".")[1]
+    let decodeString: string = Base64Util.decode(userInfo)
+    this.userid = decodeString.substring(23, decodeString.length - 21)
+    console.log(this.userid)
 
-    axios('http://192.168.43.177:8080/articles', {
+
+    axios('http://192.168.43.177:8080/articles/collect', {
       headers: {
         Authorization: this.jwt,
       },
       params: {
         pageNum: this.pageNum,
         pageSize: 10,
-        categoryId: this.categoryId
+        userid: this.userid
       }
     }).then((response) => {
       let articleData = JSON.parse(JSON.stringify(response.data.data.items))
       this.articleList = articleData
+      console.log(JSON.stringify(articleData))
     }).catch((error) => {
       console.log(error);
     });
@@ -45,7 +48,7 @@ struct CategoryArticlesPage {
 
   build() {
     Column() {
-      HomeHeader({ isBack: true, title: this.categoryName, headerBackgroundColor: $r('app.color.green_badminton') })
+      HomeHeader({ isBack: true, title: '我的收藏夹', headerBackgroundColor: $r('app.color.primary_blue') })
 
       List({ space: CommonConstants.SPACE_10 }) {
         ForEach(this.articleList, (item: Article) => {
@@ -81,14 +84,14 @@ struct CategoryArticlesPage {
         if (!this.isLoading) {
           this.isLoading = true
           console.log('加载数据')
-          axios('http://192.168.43.177:8080/articles', {
+          axios('http://192.168.43.177:8080/articles/collect', {
             headers: {
               Authorization: this.jwt,
             },
             params: {
               pageNum: ++this.pageNum,
               pageSize: 10,
-              categoryId: this.categoryId
+              userid: this.userid
             }
           }).then((response) => {
             let articleData = JSON.parse(JSON.stringify(response.data.data.items))
@@ -100,17 +103,6 @@ struct CategoryArticlesPage {
         }
       })
       .layoutWeight(1)
-
-      Button("我也要写贴文")
-        .type(ButtonType.Normal)
-        .width(200)
-        .backgroundColor($r('app.color.middle_blue'))
-        .margin({ bottom: 10 })
-        .onClick(() => {
-          router.pushUrl({
-            url: "pages/article/ArticleEditPage"
-          })
-        })
     }
     .width('100%')
     .height('100%')

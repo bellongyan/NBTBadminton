@@ -10,6 +10,11 @@
     "pages/explore/ScoreRecord",
     "pages/article/ArticlesEditPage",
     "pages/article/ArticleDetailPage",
-    "pages/article/CategoryArticlesPage"
+    "pages/article/CategoryArticlesPage",
+    "pages/home/PersonalHomePage",
+    "pages/home/AdminLogin",
+    "pages/article/ArticleCommentPage",
+    "pages/home/CollectArticles",
+    "pages/home/LikeArticles"
   ]
 }

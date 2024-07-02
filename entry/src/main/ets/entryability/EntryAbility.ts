@@ -10,6 +10,7 @@ export default class EntryAbility extends UIAbility {
     // 加载用户首选项
     PreferenceUtil.loadPreference(this.context, 'WelcomePref')
     PreferenceUtil.loadPreference(this.context, 'JwtPref')
+    PreferenceUtil.loadPreference(this.context, 'ManagerPref')
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
   }
 

@@ -2,6 +2,9 @@ import axios from '@ohos/axios'
 import router from '@ohos.router'
 import { CommonConstants } from '../../common/constants/CommonConstants'
 import Article from '../../viewmodel/Article'
+import PreferenceUtil from '../../common/utils/PreferenceUtil'
+
+const JWT_KEY = 'userJwtKey'
 
 @Component
 export default struct News {
@@ -9,12 +12,15 @@ export default struct News {
   @State articleList: Article[] = []
   @State pageNum: number = 1
   @State isLoading: boolean = false
+  @State jwt: string = ''
 
-  aboutToAppear() {
+  async aboutToAppear() {
+    let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
+    this.jwt = jwt_data.toString()
 
     axios('http://192.168.43.177:8080/articles', {
       headers: {
-        Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxNDAyMDQ1MH0.RSLgGjjFXcI0V2XrMlikRF4Ynh_JJrJi7b3X0p-1MB8'
+        Authorization: this.jwt,
       },
       params: {
         pageNum: this.pageNum,
@@ -67,7 +73,7 @@ export default struct News {
         console.log('加载数据')
         axios('http://192.168.43.177:8080/articles', {
           headers: {
-            Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxNDAyMDQ1MH0.RSLgGjjFXcI0V2XrMlikRF4Ynh_JJrJi7b3X0p-1MB8'
+            Authorization: this.jwt,
           },
           params: {
             pageNum: ++this.pageNum,

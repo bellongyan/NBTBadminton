@@ -1,27 +1,27 @@
 import router from '@ohos.router'
 import { CommonConstants } from '../../common/constants/CommonConstants'
 import LoginRegisterHeader from '../../conponent/LoginRegisterHeader'
-import LoginBody from '../../view/login/LoginBody'
+import AdminLoginBody from '../../view/login/AdminLoginBody'
 
 @Entry
 @Component
-struct Login {
+struct AdminLogin {
   @State username: string = ''
   @State password: string = ''
   @State isCheck: boolean = false
 
   build() {
     Column() {
-      LoginRegisterHeader({ title: $r('app.string.Login_Title') })
+      LoginRegisterHeader({ title: '管理员登录' })
       Column({ space: CommonConstants.SPACE_10 }) {
         Text('账号密码登录').fontWeight(CommonConstants.FONT_WEIGHT_700)
           .fontSize(32)
 
-        LoginBody({ username: this.username, password: this.password, isCheck: this.isCheck })
+        AdminLoginBody({ username: this.username, password: this.password, isCheck: this.isCheck })
 
-        Text('管理员登录').onClick(() => {
+        Text('用户登录').onClick(() => {
           router.replaceUrl({
-            url: 'pages/home/AdminLogin'
+            url: 'pages/home/Login'
           })
         })
         Text('忘记密码')

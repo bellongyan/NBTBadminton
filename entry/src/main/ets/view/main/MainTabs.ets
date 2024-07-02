@@ -8,7 +8,7 @@ export default struct MainTabs {
     Column() {
       HomeHeader({ isBack: false, title: '首页', headerBackgroundColor: $r('app.color.green_badminton') })
 
-      Tabs({index:2}) {
+      Tabs({index:1}) {
         TabContent() {
           News()
         }.tabBar('资讯')

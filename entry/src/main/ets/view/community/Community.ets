@@ -3,15 +3,22 @@ import router from '@ohos.router';
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import HomeHeader from '../../conponent/HomeHeader'
 import Category from '../../viewmodel/Category';
+import PreferenceUtil from '../../common/utils/PreferenceUtil';
+
+const JWT_KEY = 'userJwtKey'
 
 @Component
 export default struct Community {
   @State categories: Category[] = []
+  @State jwt: string = ''
 
-  aboutToAppear() {
+  async aboutToAppear() {
+    let jwt_data = await PreferenceUtil.getPreferenceValue('JwtPref', JWT_KEY, null)
+    this.jwt = jwt_data.toString()
+
     axios('http://192.168.43.177:8080/categories', {
       headers: {
-        Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcm5hbWUiOiIzMjAwNjIxMDE3In0sImV4cCI6MTcxMzQzOTc5OH0.wuzPAf4zyFphjK7gQXktAoeWyf-hHAbf3IeZkkWfAis'
+        Authorization: this.jwt,
       }
     }).then((response) => {
       this.categories = JSON.parse(JSON.stringify(response.data.data))
