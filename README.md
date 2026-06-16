@@ -1,5 +1,7 @@
 # NBTBadminton
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/bellongyan/NBTBadminton)
+
 基于 HarmonyOS 的校内羽毛球论坛系统
 
 通过使用 ArkTS 和 ArkUI 构建 HarmonyOS 原生应用，设计并实现基于 HarmonyOS 类似于“中羽在线”的校内羽毛球论坛系统
